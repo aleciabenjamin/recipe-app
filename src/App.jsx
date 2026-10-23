@@ -1,122 +1,34 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import RecipeForm from "./components/RecipeForm";
+import RecipeList from "./components/RecipeList";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [recipes, setRecipes] = useState([
+    {
+      id: 1,
+      title: "Thin Pancakes",
+      ingredients: [
+        "1 cup all-purpose flour",
+        "1 tablespoon sugar",
+        "1 teaspoon baking powder",
+        "1 pinch salt",
+        "1 teaspoon sugar (optional)",
+        "2 large eggs",
+        "1 ¼ cup whole milk",
+        "1 tablespoon light oil (you can also use butter for a richer pancake)",
+        "2 tablespoons unsalted butter",
+      ],
+      instructions:
+        "In a medium bowl, sift in the flour, salt, and sugar (if using). Make a well in it and crack in two eggs. Add in about ¼ cup of milk. Whisk the eggs together, slowly incorporating in the flour. As the batter starts to thicken, slowly continue to whisk in the rest of the milk. The batter should go from lumpy to smooth. Whisk in the oil. You can also use an electric mixer on low speed to bring everything together. Preheat a 10 or 12-inch non-stick skillet or crepe pan on medium-high heat. Make sure the skillet is nice and hot before you start making the pancakes. Melt a bit of butter on the pan and swirl it around so it evenly coats the pan. Alternatively, melt the butter in a small bowl and brush it on using a silicone basting brush (see post for why I prefer to use a brush). Pour on the pancake batter and quickly swirl the pan around so the pancake batter spreads into a thin layer. I use a crepe spreader to get the perfect round and thin pancake (see post for why this is a handy tool). Cook for about 30 - 45 seconds, until the top of the pancake is no longer liquid. Gently shake pan to loosen the pancake. Carefully flip the pancake over and cook for an addition 30 - 45 seconds.Slide the pancake onto a plate, and serve warm. Top with a squeeze of lemon and a generous shake of powder sugar.",
+    },
+  ]);
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <div className="app-container">
+      <h1>🍽️ My Personal Recipes</h1>
+      <RecipeForm />
+      <RecipeList recipes={recipes} />
+    </div>
+  );
 }
 
-export default App
+export default App;
