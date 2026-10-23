@@ -1,14 +1,18 @@
 import { useState } from "react";
 
-export default function RecipeForm() {
+export default function RecipeForm({onAddRecipe}) {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [instructions, setInstructions] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ title, ingredients, instructions });
-    // Handle form submission logic here
+    onAddRecipe({
+			title, ingredients, instructions
+		});
+		setTitle("");
+		setIngredients("");
+		setInstructions("");
   };
 
   return (
